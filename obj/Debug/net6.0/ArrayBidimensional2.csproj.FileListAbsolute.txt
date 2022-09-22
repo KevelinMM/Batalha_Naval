@@ -1,0 +1,15 @@
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\ArrayBidimensional2.exe
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\ArrayBidimensional2.deps.json
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\ArrayBidimensional2.runtimeconfig.json
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\ArrayBidimensional2.dll
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\ArrayBidimensional2.pdb
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.csproj.AssemblyReference.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.AssemblyInfoInputs.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.AssemblyInfo.cs
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.csproj.CoreCompileInputs.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.dll
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\refint\ArrayBidimensional2.dll
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.pdb
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ArrayBidimensional2.genruntimeconfig.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ref\ArrayBidimensional2.dll

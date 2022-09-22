@@ -1,4 +1,4 @@
-﻿/*Criar um programa que simule o jogo Batalha Naval .
+﻿/*BATALHA NAVAL - REGRAS DO JOGO:
 
 A cada partida, o programa deve iniciar um mapa limpo com 10 linhas e 10 colunas, e randomicamente posicionar no mapa, 
 sem repetir posições, 10 porta aviões, 01 cruzador e 02 rebocadores, tudo de forma oculta para o jogador. 
@@ -37,84 +37,325 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        //Declaracao de variaveis
         Random randNum = new Random();
         int i = 1;
-        new Program();
+        int score = 0;
         decimal[,] array2D = new decimal[10, 10];
+        string mensagem = "...";
 
-        //Posicionar 10 porta aviões(case1)
+        //Posicionar 10 porta aviões (case5)
         while (i <= 10)
         {
             int x = randNum.Next(0, 10);
             int y = randNum.Next(0, 10);
-            int z = 1;
 
             if (array2D[y, x] == 0)
             {
-                array2D[y, x] = z;
+                array2D[y, x] = 5;
                 i++;
             }
-
         }
-
         i = 1;
-        //Posicionar 3 rebocadores(case2)
+
+        //Posicionar 1 rebocador (case6)
         while (i <= 1)
         {
             int x = randNum.Next(0, 10);
             int y = randNum.Next(0, 10);
-            int z = 2;
 
             if (array2D[y, x] == 0)
             {
-                array2D[y, x] = z;
+                array2D[y, x] = 6;
                 i++;
             }
         }
-
         i = 1;
-        //Posicionar 3 rebocadores(case3)
+
+        //Posicionar 3 cruzadores (case7)
         while (i <= 3)
         {
             int x = randNum.Next(0, 10);
             int y = randNum.Next(0, 10);
-            int z = 3;
 
             if (array2D[y, x] == 0)
             {
-                array2D[y, x] = z;
+                array2D[y, x] = 7;
                 i++;
             }
         }
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.WriteLine("Escolha valores entre 1 e 10 para as coordenadas: ");
+        Console.ForegroundColor = ConsoleColor.White;
 
+        //comeco do jogo
+        for (int y = 1; y <= 15; y++)
+        {
+            Console.WriteLine("Coordenada X: ");
+            string entrada1 = Console.ReadLine();
 
+            Console.WriteLine("Coordenada Y: ");
+            string entrada2 = Console.ReadLine();
+
+            //converte string pra int 
+            int userX = (int.Parse(entrada1) - 1);
+            int userY = (int.Parse(entrada2) - 1);
+
+            if (userX < 0 || userX > 9 || userY < 0 || userY > 9)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Verifique se os valores são de 1 a 10 e tente novamente!");
+                Console.ForegroundColor = ConsoleColor.White;
+                y--;
+            }
+            else
+            {
+                //Verifica o que tem nas cordenadas
+                switch (array2D[userY, userX])
+                {
+                    //Nao encontrou...
+                    case 0:
+                        array2D[userY, userX] = 4;
+
+                        for (int z = 1; z <= 3; z++)
+                        {
+                            // ==> x
+                            if ((userX + z) < 10 && array2D[userY, (userX + z)] != 0 && array2D[userY, (userX + z)] != 1 && array2D[userY, (userX + z)] != 2 && array2D[userY, (userX + z)] != 3 && array2D[userY, (userX + z)] != 4 && z < array2D[userY, userX])
+                            {
+                                mensagem = "Existe um inimigo próximo.";
+                                array2D[userY, userX] = z;
+                            }
+                            // <== x
+                            else if ((userX - z) > 0 && array2D[userY, (userX - z)] != 0 && array2D[userY, (userX - z)] != 1 && array2D[userY, (userX - z)] != 2 && array2D[userY, (userX - z)] != 3 && array2D[userY, (userX - z)] != 4 && z < array2D[userY, userX])
+                            {
+                                mensagem = "Existe um inimigo próximo.";
+                                array2D[userY, userX] = z;
+                            }
+                            // ↑ y
+                            else if ((userY + z) < 10 && array2D[(userY + z), userX] != 0 && array2D[(userY + z), userX] != 1 && array2D[(userY + z), userX] != 2 && array2D[(userY + z), userX] != 3 && array2D[(userY + z), userX] != 4 && z < array2D[(userY + z), userX])
+                            {
+                                mensagem = "Existe um inimigo próximo.";
+                                array2D[userY, userX] = z;
+                            }
+                            // ↓ y
+                            else if ((userY - z) > 0 && array2D[(userY - z), userX] != 0 && array2D[(userY - z), userX] != 1 && array2D[(userY - z), userX] != 2 && array2D[(userY - z), userX] != 3 && array2D[(userY - z), userX] != 4 && z < array2D[(userY - z), userX])
+                            {
+                                mensagem = "Existe um inimigo próximo.";
+                                array2D[userY, userX] = z;
+                            }
+                        }
+                        break;
+
+                    //encontrou...
+                    case 5:
+                        array2D[userY, userX] = 8;
+                        score += 5;
+                        mensagem = "Voce ACERTOU um PORTA AVIOES + 5 pontos!";
+                        break;
+
+                    case 6:
+                        array2D[userY, userX] = 9;
+                        score += 15;
+                        mensagem = "Voce ACERTOU um REBOCADOR + 15 pontos!";
+                        break;
+
+                    case 7:
+                        array2D[userY, userX] = 10;
+                        score += 10;
+                        mensagem = "Voce ACERTOU um CRUZADOR + 10 pontos!";
+                        break;
+                }
+
+                //Renderizacao durante o jogo
+                Console.WriteLine("  1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10");
+                for (int linha = 0; linha < array2D.GetLength(0); ++linha)
+                {
+                    Console.WriteLine("-----------------------------------------");
+                    for (int coluna = 0; coluna < array2D.GetLength(1); ++coluna)
+                    {
+
+                        switch (array2D[linha, coluna])
+                        {
+                            case 0:
+                                Console.Write("|   ");
+                                break;
+
+                            //Inimigo a 1 casa 
+                            case 1:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write(" 1 ");
+                                break;
+
+                            //Inimigo a 2 casas
+                            case 2:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write(" 2 ");
+                                break;
+
+                            //Inimigo a 3 casas
+                            case 3:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write(" 3 ");
+                                break;
+
+                            //Errou muito
+                            case 4:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write(" M ");
+                                break;
+
+                            //Porta Aviao - hidden
+                            case 5:
+                                Console.Write("|");
+                                Console.Write("   ");
+                                break;
+
+                            //Rebocador - hidden
+                            case 6:
+                                Console.Write("|");
+                                Console.Write("   ");
+                                break;
+
+                            //Cruzador - hidden
+                            case 7:
+                                Console.Write("|");
+                                Console.Write("   ");
+                                break;
+
+                            //Acerto Porta Aviao
+                            case 8:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write(" p ");
+                                break;
+
+                            //Acerto Rebocador
+                            case 9:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write(" r ");
+                                break;
+
+                            //Acerto Cruzador
+                            case 10:
+                                Console.Write("|");
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write(" c ");
+                                break;
+                        }
+                        //Reseta a cor do console
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                    }
+
+                    Console.WriteLine("| {0}", (linha + 1));
+                }
+                Console.WriteLine("-----------------------------------------");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine(mensagem);
+                mensagem = "...";
+                Console.WriteLine("Restam {0} jogadas! ", (15 - y));
+                Console.WriteLine("Score: {0}", score);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
+
+        //Encerramento do jogo - renderizacao final 
+        Console.WriteLine("  1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10");
         for (int linha = 0; linha < array2D.GetLength(0); ++linha)
         {
             Console.WriteLine("-----------------------------------------");
             for (int coluna = 0; coluna < array2D.GetLength(1); ++coluna)
             {
-
-                //Console.Write("| {0} ", array2D[linha, coluna]);
                 switch (array2D[linha, coluna])
                 {
+                    //Vazio
                     case 0:
                         Console.Write("|   ");
                         break;
+
+                    //Inimigo a 1 casa 
                     case 1:
-                        Console.Write("| P ");
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(" 1 ");
                         break;
+
+                    //Inimigo a 2 casas
                     case 2:
-                        Console.Write("| C ");
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(" 2 ");
                         break;
+
+                    //Inimigo a 3 casas
                     case 3:
-                        Console.Write("| R ");
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(" 3 ");
+                        break;
+
+                    //Erro
+                    case 4:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(" M ");
+                        break;
+
+                    //Porta Aviao
+                    case 5:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(" P ");
+                        break;
+
+                    //Rebocador
+                    case 6:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(" C ");
+                        break;
+
+                    //Cruzador
+                    case 7:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(" R ");
+                        break;
+
+                    //Acerto Porta Aviao
+                    case 8:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(" p ");
+                        break;
+
+                    //Acerto Rebocador
+                    case 9:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(" r ");
+                        break;
+
+                    //Acerto Cruzador
+                    case 10:
+                        Console.Write("|");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(" c ");
                         break;
                 }
+                //Reseta a cor do console
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
-            Console.WriteLine("|");
+            Console.WriteLine("| {0}", (linha + 1));
         }
         Console.WriteLine("-----------------------------------------");
-
+        Console.WriteLine("Jogo encerrado!");
+        Console.WriteLine("Sua pontuação foi de: {0}", score);
     }
 }

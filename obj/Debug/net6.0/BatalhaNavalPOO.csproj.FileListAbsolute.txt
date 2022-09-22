@@ -1,0 +1,15 @@
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\BatalhaNavalPOO.exe
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\BatalhaNavalPOO.deps.json
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\BatalhaNavalPOO.runtimeconfig.json
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\BatalhaNavalPOO.dll
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\bin\Debug\net6.0\BatalhaNavalPOO.pdb
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.csproj.AssemblyReference.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.AssemblyInfoInputs.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.AssemblyInfo.cs
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.csproj.CoreCompileInputs.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.dll
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\refint\BatalhaNavalPOO.dll
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.pdb
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\BatalhaNavalPOO.genruntimeconfig.cache
+C:\Users\kevelin.mattos\Documents\Batalha_Naval\obj\Debug\net6.0\ref\BatalhaNavalPOO.dll
